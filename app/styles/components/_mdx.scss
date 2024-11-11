@@ -1,0 +1,59 @@
+.highlight-line {
+  margin-left: -14px;
+  margin-right: -16px;
+  background-color: theme("colors.zinc.800");
+  border-left: 2px solid theme("colors.amber.400");
+  display: block !important;
+  border-radius: 0 !important;
+}
+
+.mdx-container {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.mdx-container h1 {
+  margin-left: 0.5em;
+  margin-bottom: 0.7em;
+  text-align: center;
+}
+
+.mdx-container h2 {
+  margin-left: 0.5em;
+}
+
+.mdx-container h3 {
+  margin-left: 0.7em;
+}
+
+.mdx-container p {
+  margin: 0.3em 0;
+  margin-left: 2em;
+}
+
+.mdx-container blockquote {
+  margin: 1em;
+  padding: 5px 1em;
+  border-left: 0.25em solid #000;
+  background-color: $mdx-blockquote-bg;
+  border-radius: 5px;
+}
+
+.mdx-container pre {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: block;
+  padding: 10px 16px;
+  margin: 1.2em 1em;
+  line-height: 1.5rem;
+}
+
+.mdx-container pre code {
+  font-weight: bold;
+  color: $dark;
+}
+
+.mdx-container a {
+  color: blue;
+}

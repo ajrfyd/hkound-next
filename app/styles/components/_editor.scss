@@ -1,0 +1,53 @@
+.wmde-markdown-var.w-md-editor.w-md-editor-show-preview {
+  border-radius: 15px;
+  white-space: "pre-wrap";
+  background-color: #fff;
+  padding: 10px;
+
+  & h1 {
+    border-bottom: none;
+    text-align: center;
+  }
+
+  & h2 {
+    margin-left: 0.5em;
+  }
+
+  & h3 {
+    margin-left: 0.7em;
+  }
+
+  & p {
+    margin: 0.3em 0;
+    margin-left: 2em;
+  }
+
+  & blockquote {
+    margin: 1em;
+    padding: 15px 1em;
+    border-left: 0.25em solid #000;
+    background-color: $mdx-blockquote-bg;
+    border-radius: 5px;
+  }
+
+  & pre {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    // display: block;
+    padding: 10px 16px;
+    margin: 1.2em 1em;
+    line-height: 1.5rem;
+
+    code {
+      font-weight: bold;
+    }
+  }
+}
+
+.wmde-markdown-var.w-md-editor.w-md-editor-show-preview + pre {
+  position: absolute;
+  visibility: hidden;
+  top: -999999999px;
+  z-index: -100;
+  width: 50%;
+}

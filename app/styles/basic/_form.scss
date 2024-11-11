@@ -1,0 +1,130 @@
+//
+// Forms //
+//
+
+input:not(.form-check-input),
+textarea {
+  background: transparent;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 14px 24px;
+  border: 1px dashed $black-04;
+  border-radius: 26px;
+  box-shadow: none;
+  font: 400 16px $font-family-primary;
+  @include transition(ease-out 0.12s);
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+textarea {
+  height: 180px;
+}
+input:not(.form-check-input),
+textarea,
+.form-control {
+  color: $primary;
+  &::-webkit-input-placeholder {
+    color: $primary-lighter;
+  }
+  &::-moz-placeholder {
+    color: $primary-lighter;
+  }
+  &:-ms-placeholder {
+    color: $primary-lighter;
+  }
+  &::-ms-placeholder {
+    color: $primary-lighter;
+  }
+  &::placeholder {
+    color: $primary-lighter;
+  }
+  &:focus {
+    border-color: black;
+  }
+}
+label {
+  font-size: 15px;
+}
+
+//
+// Contact Form Styles //
+//
+.submit-result {
+  span {
+    @include transition(ease-out 0.2s);
+    &.show-result {
+      margin-top: 24px;
+      display: block;
+    }
+    &#success {
+      color: $green;
+    }
+    &#error {
+      color: $red;
+    }
+    .error-color {
+      background: rgba(255, 0, 0, 0.1);
+    }
+  }
+}
+
+section.form-section {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  // background-color: $gray;
+  // background-color: $theme-color-08;
+
+  // border-radius: 1.2em 0 1.2em 1.2em;
+  // border-radius: 1.2em;
+
+  // width: 100%;
+  // height: 50vh;
+  // box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+
+  @include breakpoint-above(md) {
+    width: 50%;
+    padding: 2em;
+  }
+
+  @include breakpoint-above(lg) {
+    width: 40%;
+    padding: 2em;
+  }
+
+  // @include breakpoint-less(lg) {
+  //   width: 70%;
+  // }
+  @include breakpoint-less(sm) {
+    width: 70%;
+    padding: 1em;
+  }
+}
+
+.form-btn-container {
+  display: flex;
+  justify-content: space-between;
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+
+    .link {
+      font-size: 0.87em;
+      font-weight: 300;
+      color: blue;
+      width: fit-content;
+    }
+  }
+
+  @include breakpoint-less(md) {
+    flex-direction: row;
+  }
+
+  @include breakpoint-less(sm) {
+    flex-direction: column-reverse;
+    gap: 1em;
+  }
+}
