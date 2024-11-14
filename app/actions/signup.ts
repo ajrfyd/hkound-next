@@ -1,6 +1,6 @@
 "use server";
-import { Buffer } from "node:buffer";
 import { encodeUserData } from "@/utils/utils";
+import { cookies } from "next/headers";
 
 export const signup = async (state: any, formData: FormData) => {
   const resultState = {
@@ -48,6 +48,16 @@ export const signup = async (state: any, formData: FormData) => {
     }
 
     const result = await res.json();
+
+    (await cookies()).set("rt", result.refreshToken, {
+      maxAge: Date.now() * 1000, // MS
+      httpOnly: true, // prevent XSS attacks cross-site scripting attacks
+      sameSite: "lax", // CSRF attacks cross-site request forgery attacks
+      secure: process.env.NEXT_PUPLIC_ENV !== "development",
+      path: "/",
+      // signed: true,
+      //& path 시도 해 보자
+    });
 
     return {
       ...resultState,

@@ -17,7 +17,7 @@ export const login = async (_: any, formData: FormData) => {
     return {
       ...resultState,
       state: 400,
-      message: "닉네임곽 비밀번호는 필수입니다.",
+      message: "닉네임과 비밀번호는 필수입니다.",
     };
 
   try {
