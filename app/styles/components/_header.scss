@@ -47,6 +47,27 @@
       }
     }
   }
+
+  .header-end {
+    .nav-link.alert-container {
+      position: relative;
+      color: red;
+      padding: 0;
+      margin: 0;
+
+      &.alert::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: red;
+        // border-color: red;
+        border-radius: 50%;
+        top: 2px;
+        right: 0;
+      }
+    }
+  }
 }
 @include breakpoint-above(lg) {
   .header {

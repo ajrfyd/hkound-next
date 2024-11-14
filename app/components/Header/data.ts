@@ -16,16 +16,16 @@ export const headerData = {
       bootstrapIcon: "bi bi-github",
       target: "_blank",
     },
-    {
-      url: "/login",
-      bootstrapIcon: "fa fa-user",
-      target: null,
-    },
-    {
-      url: "/chat",
-      bootstrapIcon: "fa fa-regular fa-comment-dots",
-      target: null,
-      chat: true,
-    },
+    // {
+    //   url: "/login",
+    //   bootstrapIcon: "fa fa-user",
+    //   target: null,
+    // },
+    // {
+    //   url: "/chat",
+    //   bootstrapIcon: "fa fa-regular fa-comment-dots",
+    //   target: null,
+    //   chat: true,
+    // },
   ],
 };

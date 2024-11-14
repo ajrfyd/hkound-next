@@ -2,11 +2,16 @@
 import { useEffect, useState, useCallback } from "react";
 import { headerData } from "./data";
 import Link from "next/link";
+import { useUserStore } from "@/store/userStore";
+import LinkIcon from "./LinkIcon";
+import useUser from "@/hooks/useUser";
+import { notify } from "@/utils/utils";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const user = useUser();
 
-  const toggleMenu = () => setShowMenu((prev) => !prev);
+  const toggleMenu = useCallback(() => setShowMenu((prev) => !prev), []);
 
   const outsideClickHandler = useCallback(
     (e: Event) => {
@@ -64,9 +69,33 @@ const Header = () => {
                   )}
                   {/* <a href={item.url} target={item.target ? item.target : ''}>
                     <i className={item.bootstrapIcon}></i>
-                  </a> */}
+                    </a> */}
                 </li>
               ))}
+              <li>
+                <LinkIcon
+                  url="/login"
+                  icon={`fa ${user?.id ? "fa-circle-user" : "fa-user"}`}
+                />
+              </li>
+              {/* <li>
+                <LinkIcon
+                  url="/chat"
+                  icon="fa fa-regular fa-comment-dots"
+                  isChatIcon
+                  alert
+                  onClick={() => {
+                    alert("!");
+                    notify("준비중 입니다.");
+                  }}
+                />
+              </li> */}
+              <li
+                style={{ cursor: "pointer" }}
+                onClick={() => notify("준비중 입니다.")}
+              >
+                <i className="nav-link fa fa-regular fa-comment-dots" />
+              </li>
             </ul>
           </div>
 

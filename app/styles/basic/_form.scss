@@ -71,7 +71,8 @@ label {
   }
 }
 
-section.form-section {
+.form-section,
+main.form-section {
   margin: 0 auto;
   margin-bottom: 2em;
   // background-color: $gray;

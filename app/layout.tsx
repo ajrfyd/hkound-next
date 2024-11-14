@@ -7,6 +7,8 @@ import "@/styles/global.min.css";
 import "@/styles/theme.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import ToastProvider from "@/components/common/ToastProvider";
+// import Layer from "./components/common/Layer";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -33,8 +35,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className="d-flex flex-column">
         <Header />
-
-        {children}
+        <ToastProvider>{children}</ToastProvider>
         <Footer />
       </body>
     </html>
