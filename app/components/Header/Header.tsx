@@ -84,10 +84,6 @@ const Header = () => {
                   icon="fa fa-regular fa-comment-dots"
                   isChatIcon
                   alert
-                  onClick={() => {
-                    alert("!");
-                    notify("준비중 입니다.");
-                  }}
                 />
               </li> */}
               <li

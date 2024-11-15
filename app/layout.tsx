@@ -24,6 +24,12 @@ import ToastProvider from "@/components/common/ToastProvider";
 export const metadata: Metadata = {
   title: "Hkound",
   description: "2년차 개발자의 개인 블로그 입니다.",
+  verification: {
+    google: "",
+  },
+  other: {
+    "naver-site-verification": "58b30313bd24829c557f6941b289c8c36873b438",
+  },
 };
 
 export default function RootLayout({
