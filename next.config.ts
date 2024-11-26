@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "http://localhost:5000", // Nest.js 서버의 URL로 변경
+            value: "https://blog.hkound.pe.kr", // Nest.js 서버의 URL로 변경
           },
           {
             key: "Access-Control-Allow-Methods",
