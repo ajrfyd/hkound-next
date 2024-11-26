@@ -76,4 +76,18 @@ export const authFormValid = (
   return authFormMapper;
 };
 
-export const notify = (message: string, options?: unknown) => toast(message);
+export const notify = (message: string, options?: unknown) =>
+  toast(message, { autoClose: 1000 });
+
+export const dateFormat = (date: string) =>
+  new Intl.DateTimeFormat("ko", {
+    dateStyle: "short",
+    timeStyle: "short",
+    timeZone: "Asia/seoul",
+  }).format(new Date(date));
+
+export const getLocalstorage = (key: string) =>
+  JSON.parse(localStorage.getItem(key) as string);
+
+export const setLocalstorage = (key: string, data: unknown) =>
+  localStorage.setItem(key, JSON.stringify(data));

@@ -5,15 +5,15 @@ import React, {
   useActionState,
   useCallback,
   useEffect,
-  useState,
 } from "react";
 import Link from "next/link";
 import { signup } from "@/actions/signup";
 import { login } from "@/actions/login";
 import { toast } from "react-toastify";
 import { authFormValid } from "@/utils/utils";
-import { useUserStore } from "@/store/userStore";
+import { userStore } from "@/store/userStore";
 import { useRouter } from "next/navigation";
+import { socketStore } from "@/store/socketStore";
 
 type AuthFormProps = {
   type: "login" | "signup";
@@ -24,8 +24,10 @@ const AuthForm = ({ type }: AuthFormProps) => {
     type === "login" ? login : signup,
     null,
   );
-  const setUser = useUserStore((state) => state.setUser);
-  const user = useUserStore((state) => state.user);
+  const user = userStore((state) => state.user);
+  const { setUser } = userStore((state) => state);
+  const { connect } = socketStore((state) => state.actions);
+  // const { connect } = userStore((state) => state);
   const router = useRouter();
 
   const submitHandler = useCallback(
@@ -58,6 +60,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
       if (state.message === "ok") {
         localStorage.setItem("at", JSON.stringify(state.result.accessToken));
         setUser(state.result.id, state.result.nickname, state.result.role);
+        connect(state.result.id);
         router.replace("/");
       }
 

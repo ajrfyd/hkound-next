@@ -1,6 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
 
-export const removeCookie = async () => {
+export const removeAuthCookie = async () => {
   (await cookies()).delete("rt");
 };

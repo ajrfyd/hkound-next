@@ -3,13 +3,13 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import TitleSection from "../common/TitleSection";
 import AuthForm from "./AuthForm";
-import { useUserStore } from "@/store/userStore";
+import { userStore } from "@/store/userStore";
 import Mypage from "./Mypage";
 
 const MainAuthPage = () => {
   const path = usePathname();
   const type = path.slice(1) as "login" | "signup";
-  const user = useUserStore((state) => state.user);
+  const user = userStore((state) => state.user);
 
   return (
     <>

@@ -1,21 +1,24 @@
 "use client";
 import React from "react";
-import { useUserStore } from "@/store/userStore";
-import { removeCookie } from "@/actions/removeCookie";
+import { userStore } from "@/store/userStore";
+import { removeAuthCookie } from "@/actions/removeAuthCookie";
 
 const Mypage = () => {
-  const reset = useUserStore((state) => state.reset);
-  const user = useUserStore((state) => state.user);
+  const user = userStore((state) => state.user);
+  const { logout } = userStore((state) => state);
+  // const disconnect = userStore((state) => state.disconnect);
 
   const logoutHandler = () => {
     localStorage.clear();
-    removeCookie();
-    reset();
+    removeAuthCookie();
+    logout();
+    // disconnect();
+    // reset();
   };
 
   return (
     <section className="section-sm">
-      <div className="form-section styled-box ">
+      <div className="form-section styled-box">
         <h2>로그아웃</h2>
         <p>{user?.nickname} 로그아웃이 필요하십니까?</p>
         <button className="" onClick={logoutHandler}>
