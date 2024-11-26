@@ -42,20 +42,6 @@ export const login = async (_: any, formData: FormData) => {
 
     const result = await res.json();
 
-    // return new NextResponse(
-    //   JSON.stringify({
-    //     ...resultState,
-    //     result,
-    //     message: "ok",
-    //   }),
-    //   {
-    //     status: 200,
-    //     headers: {
-    //       ["Set-Cookie"]: `refresh_token=${result.refreshToken}; Path=/; HttpOnly; SameSite=Strict;`,
-    //     },
-    //   },
-    // );
-
     (await cookies()).set("rt", result.refreshToken, {
       maxAge: 30 * 24 * 60 * 60, // MS
       httpOnly: true, // prevent XSS attacks cross-site scripting attacks
@@ -63,15 +49,7 @@ export const login = async (_: any, formData: FormData) => {
       secure: process.env.NEXT_PUPLIC_ENV !== "development",
       path: "/",
       domain: ".hkound.pe.kr",
-      // signed: true,
-      //& path 시도 해 보자
     });
-    // cookies().set("refresh_token", refreshToken, {
-    //   path: "/",
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: "strict"
-    // });
 
     return {
       ...resultState,
