@@ -57,7 +57,7 @@ export const login = async (_: any, formData: FormData) => {
     // );
 
     (await cookies()).set("rt", result.refreshToken, {
-      maxAge: Date.now() * 1000, // MS
+      maxAge: 30 * 24 * 60 * 60, // MS
       httpOnly: true, // prevent XSS attacks cross-site scripting attacks
       sameSite: "lax", // CSRF attacks cross-site request forgery attacks
       secure: process.env.NEXT_PUPLIC_ENV !== "development",
