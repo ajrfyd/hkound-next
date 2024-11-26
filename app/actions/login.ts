@@ -59,9 +59,10 @@ export const login = async (_: any, formData: FormData) => {
     (await cookies()).set("rt", result.refreshToken, {
       maxAge: Date.now() * 1000, // MS
       httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-      sameSite: "none", // CSRF attacks cross-site request forgery attacks
+      sameSite: "lax", // CSRF attacks cross-site request forgery attacks
       secure: process.env.NEXT_PUPLIC_ENV !== "development",
       path: "/",
+      domain: "https://blog.hkound.shop",
       // signed: true,
       //& path 시도 해 보자
     });
