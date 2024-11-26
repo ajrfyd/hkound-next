@@ -28,9 +28,6 @@ export const socketStore = create<State & Actions>((set, get) => ({
         withCredentials: true,
         transports: ["websocket"],
         secure: true,
-        extraHeaders: {
-          ["cookie"]: document.cookie,
-        },
         auth: {
           id,
         },

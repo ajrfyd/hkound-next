@@ -62,6 +62,7 @@ export const login = async (_: any, formData: FormData) => {
       sameSite: "lax", // CSRF attacks cross-site request forgery attacks
       secure: process.env.NEXT_PUPLIC_ENV !== "development",
       path: "/",
+      domain: ".hkound.pe.kr",
       // signed: true,
       //& path 시도 해 보자
     });
