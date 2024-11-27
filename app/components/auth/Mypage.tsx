@@ -6,7 +6,6 @@ import { removeAuthCookie } from "@/actions/removeAuthCookie";
 const Mypage = () => {
   const user = userStore((state) => state.user);
   const { logout } = userStore((state) => state);
-  // const disconnect = userStore((state) => state.disconnect);
 
   const logoutHandler = () => {
     localStorage.clear();
