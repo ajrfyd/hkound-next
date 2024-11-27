@@ -10,7 +10,7 @@ type State = {
 
 type Actions = {
   actions: {
-    connect: (id: string) => void;
+    connect: (id: string, token: string) => void;
     disconnect: () => void;
     setEventListeners: () => void;
   };
@@ -24,7 +24,7 @@ const initialState = {
 export const socketStore = create<State & Actions>((set, get) => ({
   ...initialState,
   actions: {
-    connect: (id) => {
+    connect: (id, token) => {
       const env = process.env.NEXT_PUBLIC_ENV;
       const url =
         env === "development"
@@ -36,6 +36,7 @@ export const socketStore = create<State & Actions>((set, get) => ({
         withCredentials: true,
         auth: {
           id,
+          token,
         },
         secure: true,
         reconnection: true,

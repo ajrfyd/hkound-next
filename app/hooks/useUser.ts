@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { userStore } from "@/store/userStore";
 import { type User } from "@/types/types";
-import { notify, setLocalstorage } from "@/utils/utils";
+import { getLocalstorage, notify, setLocalstorage } from "@/utils/utils";
 import { socketStore } from "@/store/socketStore";
+import { useRouter } from "next/navigation";
 
 const useUser = () => {
   const user = userStore((state) => state.user);
   const { setUser } = userStore((state) => state);
   const { connect, disconnect } = socketStore((state) => state.actions);
+  const router = useRouter();
   // const { connect, disconnect, setUser } = userStore();
   // const setUser = userStore((state) => state.setUser);
 
@@ -26,6 +28,11 @@ const useUser = () => {
 
       if (!res.ok) {
         const result = await res.json();
+        if (result.statusCode === 400) {
+          router.replace("/login");
+          localStorage.removeItem("at");
+          return notify(result.message);
+        }
         if (result.statusCode === 401) {
           await reIssueAccessToken();
         }
@@ -35,7 +42,7 @@ const useUser = () => {
 
       const result: User = await res.json();
       setUser(result.id as string, result.nickname as string, result.role);
-      connect(result.id as string);
+      connect(result.id as string, token);
     } catch (e) {
       if (e instanceof Error) throw Error(e.message, e);
     }

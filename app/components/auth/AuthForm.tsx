@@ -59,9 +59,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
     if (state) {
       if (state.message === "ok") {
         setLocalstorage("at", state.result.accessToken);
-        // localStorage.setItem("at", JSON.stringify(state.result.accessToken));
         setUser(state.result.id, state.result.nickname, state.result.role);
-        connect(state.result.id);
+        connect(state.result.id, state.result.accessToken);
         router.replace("/");
       }
 
@@ -70,7 +69,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
           ? `${state.result.nickname}님 환영합니다.`
           : state.message,
         {
-          autoClose: 2000,
+          autoClose: 1000,
         },
       );
     }
