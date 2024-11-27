@@ -47,7 +47,7 @@ export const socketStore = create<State & Actions>((set, get) => ({
 
       socket.on("connect", () => {
         if (socket.connected) {
-          console.log("Connected!!!");
+          // console.log("Connected!!!");
           set({ isConnect: true, socket });
           get().actions.setEventListeners();
         }
