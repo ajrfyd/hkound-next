@@ -41,8 +41,8 @@ export const socketStore = create<State & Actions>((set, get) => ({
         reconnection: true,
         reconnectionAttempts: 3,
         reconnectionDelay: 1000,
-        upgrade: true,
-        port: 5000,
+        // upgrade: true,
+        // port: 5000,
       });
 
       socket.on("connect", () => {
