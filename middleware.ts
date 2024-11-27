@@ -8,6 +8,8 @@ export const middleware = async (req: NextRequest) => {
   // console.log(req.credentials);
   // console.log(req.destination);
   // console.log("Middleware!!!!!!");
+  console.log(req.cookies);
+  // console.log(req.headers);
 
   return next;
 };
