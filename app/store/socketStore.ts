@@ -30,7 +30,6 @@ export const socketStore = create<State & Actions>((set, get) => ({
         env === "development"
           ? process.env.NEXT_PUBLIC_API_ENDPOINT
           : process.env.NEXT_PUBLIC_WS_ENDPOINT;
-      console.log(env);
       const socket = io(url, {
         transports: ["websocket"],
         secure: true,
