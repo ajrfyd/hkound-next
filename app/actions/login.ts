@@ -46,7 +46,7 @@ export const login = async (_: any, formData: FormData) => {
       maxAge: 30 * 24 * 60 * 60, // MS
       httpOnly: true, // prevent XSS attacks cross-site scripting attacks
       sameSite: "lax", // CSRF attacks cross-site request forgery attacks
-      secure: process.env.NEXT_PUPLIC_ENV !== "development",
+      secure: process.env.NEXT_PUBLIC_ENV !== "development",
       path: "/",
       // domain: ".hkound.pe.kr",
     });

@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { io, Socket } from "socket.io-client";
 import { chatStore } from "./chatStore";
+import { getLocalstorage } from "@/utils/utils";
 
 type State = {
   socket: Socket | null;
@@ -24,7 +25,13 @@ export const socketStore = create<State & Actions>((set, get) => ({
   ...initialState,
   actions: {
     connect: (id) => {
-      const socket = io(process.env.NEXT_PUBLIC_API_ENDPOINT, {
+      const env = process.env.NEXT_PUBLIC_ENV;
+      const url =
+        env === "development"
+          ? process.env.NEXT_PUBLIC_API_ENDPOINT
+          : process.env.NEXT_PUBLIC_WS_ENDPOINT;
+      console.log(env);
+      const socket = io(url, {
         transports: ["websocket"],
         secure: true,
         withCredentials: true,
