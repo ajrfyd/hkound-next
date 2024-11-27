@@ -25,9 +25,9 @@ export const socketStore = create<State & Actions>((set, get) => ({
   actions: {
     connect: (id) => {
       const socket = io(process.env.NEXT_PUBLIC_API_ENDPOINT, {
-        withCredentials: true,
         transports: ["websocket"],
         secure: true,
+        withCredentials: true,
         auth: {
           id,
         },
@@ -36,7 +36,6 @@ export const socketStore = create<State & Actions>((set, get) => ({
         reconnectionDelay: 1000,
         upgrade: true,
         port: 5000,
-        path: "/",
       });
 
       socket.on("connect", () => {
