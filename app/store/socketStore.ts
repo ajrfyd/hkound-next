@@ -37,6 +37,9 @@ export const socketStore = create<State & Actions>((set, get) => ({
         auth: {
           id,
         },
+        extraHeaders: {
+          ["ssib"]: "ssib!",
+        },
         // secure: true,
         reconnection: true,
         reconnectionAttempts: 3,
