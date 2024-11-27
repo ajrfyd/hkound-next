@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            // value: "https://blog.hkound.shop", // Nest.js 서버의 URL로 변경
-            value: "*",
+            value: "https://blog.hkound.shop", // Nest.js 서버의 URL로 변경
+            // value: "*",
           },
           {
             key: "Access-Control-Allow-Methods",
