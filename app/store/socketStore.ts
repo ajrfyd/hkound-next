@@ -37,7 +37,7 @@ export const socketStore = create<State & Actions>((set, get) => ({
         auth: {
           id,
         },
-        // secure: true,
+        secure: true,
         reconnection: true,
         reconnectionAttempts: 3,
         reconnectionDelay: 1000,
