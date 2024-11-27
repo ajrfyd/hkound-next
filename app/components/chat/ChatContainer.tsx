@@ -54,7 +54,6 @@ const ChatContainer = () => {
     // };
   }, [user, socket]);
 
-  console.log(isW);
   return (
     <section className="section-sm">
       <div className="container-fluid">
