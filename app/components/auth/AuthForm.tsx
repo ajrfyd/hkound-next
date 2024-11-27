@@ -58,7 +58,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
   useEffect(() => {
     if (state) {
       if (state.message === "ok") {
-        setLocalstorage("at", JSON.stringify(state.result.accessToken));
+        setLocalstorage("at", state.result.accessToken);
         // localStorage.setItem("at", JSON.stringify(state.result.accessToken));
         setUser(state.result.id, state.result.nickname, state.result.role);
         connect(state.result.id);
