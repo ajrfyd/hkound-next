@@ -10,7 +10,7 @@ import Link from "next/link";
 import { signup } from "@/actions/signup";
 import { login } from "@/actions/login";
 import { toast } from "react-toastify";
-import { authFormValid } from "@/utils/utils";
+import { authFormValid, setLocalstorage } from "@/utils/utils";
 import { userStore } from "@/store/userStore";
 import { useRouter } from "next/navigation";
 import { socketStore } from "@/store/socketStore";
@@ -58,7 +58,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
   useEffect(() => {
     if (state) {
       if (state.message === "ok") {
-        localStorage.setItem("at", JSON.stringify(state.result.accessToken));
+        setLocalstorage("at", JSON.stringify(state.result.accessToken));
+        // localStorage.setItem("at", JSON.stringify(state.result.accessToken));
         setUser(state.result.id, state.result.nickname, state.result.role);
         connect(state.result.id);
         router.replace("/");
