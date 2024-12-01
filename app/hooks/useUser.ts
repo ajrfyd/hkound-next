@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { userStore } from "@/store/userStore";
 import { type User } from "@/types/types";
 import { getLocalstorage, notify, setLocalstorage } from "@/utils/utils";
@@ -13,7 +13,7 @@ const useUser = () => {
   // const { connect, disconnect, setUser } = userStore();
   // const setUser = userStore((state) => state.setUser);
 
-  const authHandler = async (token: string) => {
+  const authHandler = useCallback(async (token: string) => {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/user`,
@@ -46,9 +46,9 @@ const useUser = () => {
     } catch (e) {
       if (e instanceof Error) throw Error(e.message, e);
     }
-  };
+  }, []);
 
-  const reIssueAccessToken = async () => {
+  const reIssueAccessToken = useCallback(async () => {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/token/reissue`,
@@ -68,7 +68,7 @@ const useUser = () => {
     } catch (e) {
       if (e instanceof Error) throw Error(e.message, e);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (user) return;

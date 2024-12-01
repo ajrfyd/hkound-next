@@ -76,8 +76,8 @@ export const authFormValid = (
   return authFormMapper;
 };
 
-export const notify = (message: string, options?: unknown) =>
-  toast(message, { autoClose: 1000 });
+export const notify = (message: string, time: number = 1000) =>
+  toast(message, { autoClose: time });
 
 export const dateFormat = (date: string) =>
   new Intl.DateTimeFormat("ko", {

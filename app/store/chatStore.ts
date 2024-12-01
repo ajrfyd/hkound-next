@@ -48,7 +48,7 @@ export const chatStore = create<State & Actions>((set, get) => ({
       if (user) {
         // console.log(message.owner.id !== user.id);
         if (!isWatching && message.owner.id !== user.id)
-          notify(`From ${message.owner.nickname}: ${message.message}`);
+          notify(`From ${message.owner.nickname}: ${message.message}`, 5000);
         if (user.role === 0) {
           if (selectedRoom && selectedRoom === message.room.id) {
             // console.log(selectedRoom, message);

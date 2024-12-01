@@ -44,10 +44,10 @@ export const login = async (_: any, formData: FormData) => {
 
     (await cookies()).set("rt", result.refreshToken, {
       maxAge: 30 * 24 * 60 * 60, // MS
-      httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-      sameSite: "lax", // CSRF attacks cross-site request forgery attacks
+      httpOnly: true,
+      sameSite: "none",
       secure: process.env.NEXT_PUBLIC_ENV !== "development",
-      path: "/",
+      // path: "/",
       // domain: ".hkound.pe.kr",
     });
 
