@@ -47,8 +47,8 @@ export const login = async (_: any, formData: FormData) => {
       httpOnly: true,
       sameSite: "none",
       secure: process.env.NEXT_PUBLIC_ENV !== "development",
+      domain: ".hkound.pe.kr",
       // path: "/",
-      // domain: ".hkound.pe.kr",
     });
 
     return {
