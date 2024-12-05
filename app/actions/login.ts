@@ -51,7 +51,7 @@ export const login = async (_: any, formData: FormData) => {
       domain:
         process.env.NEXT_PUBLIC_ENV === "development"
           ? "localhost"
-          : process.env.NEXT_PUBLIC_COOKIE_DOMAIN,
+          : process.env.NEXT_PUBLIC_CLIENT_COOKIE_DOMAIN,
       // path: "/",
     });
 

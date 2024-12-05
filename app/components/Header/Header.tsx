@@ -22,13 +22,6 @@ const Header = () => {
     [showMenu],
   );
 
-  const f = async () => {
-    const res = await fetch("http://localhost:3000/api/cors", {
-      method: "OPTIONS",
-    });
-    console.log(res);
-  };
-
   useEffect(() => {
     document.addEventListener("click", outsideClickHandler);
 

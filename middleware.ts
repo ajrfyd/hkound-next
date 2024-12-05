@@ -7,7 +7,7 @@ export const middleware = async (req: NextRequest) => {
 
   if (cks) {
     const { value } = cks;
-    await (await cookies()).delete("rt");
+    (await cookies()).delete("rt");
 
     (await cookies()).set("rt", value, {
       maxAge: 30 * 24 * 60 * 60, // MS
