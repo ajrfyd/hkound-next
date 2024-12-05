@@ -46,8 +46,12 @@ export const login = async (_: any, formData: FormData) => {
       maxAge: 30 * 24 * 60 * 60, // MS
       httpOnly: true,
       sameSite: "none",
-      secure: process.env.NEXT_PUBLIC_ENV !== "development",
-      domain: ".hkound.pe.kr",
+      // secure: process.env.NEXT_PUBLIC_ENV !== "development",
+      secure: true,
+      domain:
+        process.env.NEXT_PUBLIC_ENV === "development"
+          ? "localhost"
+          : ".hkound.pe.kr",
       // path: "/",
     });
 
